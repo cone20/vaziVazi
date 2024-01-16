@@ -1,0 +1,137 @@
+% ==================================================================================
+%1) <- NISAM SIGURAN ZA OVE!!!
+% -----------------------------------------
+%a)
+syms a b c x;
+
+% kad je u pitanju simbolicka matematika jednako (=) je ==
+eq = a * x^2 + b * x + c == 0;
+
+[x] = solve(eq)
+
+% -----------------------------------------
+%b)
+syms y;
+eq = cos(2 * y) + sin(y) == 2;
+[y] = solve(eq)
+
+% -----------------------------------------
+%c)
+syms a b x;
+eq = a * x^2 + 5 * b * x + 20 == 0;
+[x] = solve(eq)
+
+% ==================================================================================
+% 2)
+a = input('Unesite a: ');
+b = input('Unesite b: ');
+
+if (a > 1)
+    z = b / a;
+elseif (-6 < a && a <= 1)
+    z = a + 3;
+else
+    z = a + b;
+end
+
+fprintf('Z = %.3f', z);
+
+% ==================================================================================
+% 3)
+% -----------------------------------------
+% a)
+n = input('Unesite n: ');
+k = input('Unesite k: ');
+sum = 0;
+count = 0;
+% ukoliko treba da se definise slucaj kad je k veci od n:
+
+% if (n > k)
+%   temp = n;
+%   n = k;
+%   k = n;
+% end
+
+% ako je i n ukljuceno onda n >= k
+while(k > n) 
+    % rem -> remainder - ostatak
+    if(rem(n, 3) == 0)
+        sum = sum + n;
+        count = count + 1;
+    end
+    n = n + 1;
+end
+
+% ovo mora da bi se izbeglo deljenje sa nulom,
+% ako je count = 0 znaci da nema nijednog broja deljivog sa 3
+% tkd sum = 0, count = 0 -> 0/0 -> NaN
+if (count > 1)
+    avg = sum / count;
+else
+    avg = 0;
+end
+
+%                                 \n je za novi red
+fprintf('Aritmeticka sredina: %.3f\n', avg);
+
+% -----------------------------------------
+% b)
+n = input('Unesite n: ');
+k = input('Unesite k: ');
+% sum je jedan ovde zbog proizvoda
+sum = 1;
+count = 0;
+% ukoliko treba da se definise slucaj kad je k veci od n:
+
+% if (n > k)
+%   temp = n;
+%   n = k;
+%   k = n;
+% end
+
+% ako je i n ukljuceno onda k >= n
+while(k > n) 
+    % rem -> remainder - ostatak
+    if(rem(n, 5) == 0)
+        sum = sum * n;
+        count = count + 1;
+    end
+    n = n + 1;
+end
+
+% ako je count = 0 znaci da nema deljivih brojeva sa 5,
+% tkd mi cemo da stavimo da nam je proizvod svih brojeva (promenljiva sum)
+% jednak nuli
+if (count == 0)
+    sum = 0;
+end
+  
+%i -> integer, ceo broj
+fprintf('Proizvod: %i\nUkupno: %i', sum, count);
+% -----------------------------------------
+% ==================================================================================
+% 4)
+a = input('Unesite broj redova: ');
+
+for i = 1:a
+    for j = i:a
+        fprintf(' ');
+    end
+    fprintf('x\n');
+end
+
+% ==================================================================================
+% 5) <- Nisam siguran za ovaj!!!
+N = input('Unesite N: ');
+sum = 0;
+
+for i = 1:N
+    % ovde ne znam da li ide minus, nije mi jasna postava zadatka
+    sum = sum - (i / (2 * i - 1)^2);
+end
+
+fprintf('Resenje: %.3f\n', sum);
+
+
+
+

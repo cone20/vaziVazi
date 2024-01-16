@@ -1,0 +1,44 @@
+polyval(p, x) -> vrednost polinoma
+roots(p) -> resenja polinoma (npr za kvadr j-nu)
+poly(r) -> iz resenja u polinom
+p1 + p2 -> istih dimenzija
+p1 * p2 = conv(p1, p2) -> moraju biti razlicitih dimenzija
+p1 / p2 = [res, rem] = deconv(p1, p2) 
+
+polyder(p) -> izvod polinoma
+(p1 * p2)' = polyder(p1, p2) -> izvod mnozenja polinoma
+(p1 / p2)' = [res, rem] = polyder(p1, p2) -> izvod deljenja polinoma
+
+plot3(x, y, z) -> 3D grafikon
+[X, Y] = meshgrid(x, y) -> kreiranje resetke ravni
+mesh(X, Y, Z) surf(X, Y, Z) -> kreiranje povrsinskih grafikona
+
+fzero('func', tackaPresecanjaXOse)
+[x, vrednostFunkUX] = findminbnd('func', m, n) -> m, n interval
+
+[t, y] = ode45('Ime DEFINISANE func', OPSEG, y0) -> obicne dif j-ne
+
+syms s1 s2 ... sn; -> definisanje simbola s1... sn
+findsym(S) -> pronalazenje svih simbola u izrazu
+
+collect(S) -> (najbolje za jednu promenljivu) grupisanje i sabiranje clanova izraza
+expand(S) -> medjusobno mnozenje clanova, sabiranje, logaritamske i trig f-je itd
+factor(SP) -> iz (simbolickog) polinoma SP u proizvod nizeg stepena
+simplify(S) -> koriscenje sabiranja, oduzimanja, mnozenja itd da bi se izraz uprostio
+[res, how] = simple(S) -> res rezultat najjednostavnijeg oblika, how na koji nacin je doslo do uproscavanja
+pretty(S) -> formatiranje simbolickog izraza S
+
+solve(j) -> resavanje simbolicke j-ne, ako imamo sistem j-na onda ih sve poredjamo od 1 do n:
+[res1, res2, ..., resn] = solve(j1, j2, ..., jn)
+
+diff(S) -> diferenciranje po podrazumevnoj promenljivoj (obicno x)
+diff(S, promenljiva) -> diferenciranje po promenljivoj 'promenljiva'
+int(S) -> integraljenje po podrazumevnoj promenljivoj
+int(S, promenljiva) -> promenljiva 'promenljiva'
+
+dsolve(j) -> resavanje obicne diferencijalne jednacine j (promenljiva t)
+dsolve(j, promenljiva) -> promenljiva 'promenljiva'
+
+ezplot(S1, [xmin, xmax, ymin, ymax) -> crtanje krive izraza S sa jednom ili dveju promenljivih
+ezplot(S1, [min, max])
+ezplot(S1, S2, [min, max]) -> crtanje funkcije parametarskog oblika
